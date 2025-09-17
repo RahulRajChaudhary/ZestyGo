@@ -38,34 +38,34 @@ export default function SignUp() {
   };
 
   const handleGoogleAuth = async () => {
-  try {
-    let mobileNumber = mobile;
+    try {
+      let mobileNumber = mobile;
 
-    if (!mobileNumber) {
-      mobileNumber = prompt("Please enter your mobile number:");
-     
-      setMobile(mobileNumber);
+      if (!mobileNumber) {
+        mobileNumber = prompt("Please enter your mobile number:");
+
+        setMobile(mobileNumber);
+      }
+
+      const result = await signInWithPopup(auth, provider);
+
+      if (result) {
+        const { data } = await axios.post(
+          `${serverUrl}/api/auth/googleauth`,
+          {
+            fullName: result.user.displayName,
+            email: result.user.email,
+            mobile: mobileNumber, // ✅ directly use local var
+            role,
+          },
+          { withCredentials: true }
+        );
+        dispatch(setUserData(data));
+      }
+    } catch (error) {
+      console.log(error);
     }
-
-    const result = await signInWithPopup(auth, provider);
-
-    if (result) {
-      const { data } = await axios.post(
-        `${serverUrl}/api/auth/googleauth`,
-        {
-          fullName: result.user.displayName,
-          email: result.user.email,
-          mobile: mobileNumber, // ✅ directly use local var
-          role,
-        },
-        { withCredentials: true }
-      );
-      dispatch(setUserData(data));
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+  };
 
 
 
@@ -79,7 +79,7 @@ export default function SignUp() {
         style={{ border: `1px solid ${borderColor}` }}
       >
         <h1 className="text-3xl font-bold mb-2" style={{ color: primaryColor }}>
-          Vingo
+          ZestyGo
         </h1>
         <p className="text-gray-600 mb-8">
           Create your account to get started with delicious food deliveries

@@ -83,12 +83,12 @@ export const searchItems = async (req, res) => {
 
 
     if (shopsInCity.length === 0) {
-      return res.status(200).json([]); // उस city में कोई shop नहीं
+      return res.status(200).json([]); 
     }
 
     const shopIds = shopsInCity.map((s) => s._id);
 
-    // अब उन shops के अंदर items filter करो जो query से match करें
+  
     const items = await Item.find({
       shop: { $in: shopIds },
       $or: [

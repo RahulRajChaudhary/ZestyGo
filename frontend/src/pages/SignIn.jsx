@@ -19,7 +19,7 @@ export default function SignIn() {
   const hoverColor = "#e64323"; // darker orange
   const bgColor = "#fff9f6"; // light off-white background
   const borderColor = "#ddd";
-const dispatch=useDispatch()
+  const dispatch = useDispatch()
   const handleSignIn = async () => {
     try {
       const result = await axios.post(
@@ -27,7 +27,7 @@ const dispatch=useDispatch()
         { email, password },
         { withCredentials: true }
       );
-     dispatch(setUserData(result.data))
+      dispatch(setUserData(result.data))
     } catch (error) {
       console.log(error);
     }
@@ -37,11 +37,11 @@ const dispatch=useDispatch()
     try {
       const result = await signInWithPopup(auth, provider);
       console.log(result);
-      if(result){
-        const {data}=await axios.post(`${serverUrl}/api/auth/googleauth`,{
-          email:result.user.email,
-        },{withCredentials:true})
-         dispatch(setUserData(data))
+      if (result) {
+        const { data } = await axios.post(`${serverUrl}/api/auth/googleauth`, {
+          email: result.user.email,
+        }, { withCredentials: true })
+        dispatch(setUserData(data))
       }
 
     } catch (error) {
@@ -60,7 +60,7 @@ const dispatch=useDispatch()
       >
         {/* Brand Heading */}
         <h1 className="text-3xl font-bold mb-2" style={{ color: primaryColor }}>
-          Vingo
+          ZestyGo
         </h1>
         <p className="text-gray-600 mb-8">
           Welcome back! Please sign in to continue enjoying delicious food

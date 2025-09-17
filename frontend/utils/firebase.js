@@ -6,16 +6,16 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey:import.meta.env.VITE_FIREBASE_APIKEY,
-  authDomain: "fooddeliveryauth-7734b.firebaseapp.com",
-  projectId: "fooddeliveryauth-7734b",
-  storageBucket: "fooddeliveryauth-7734b.firebasestorage.app",
-  messagingSenderId: "32570922634",
-  appId: "1:32570922634:web:68a6334b0925ff3965ff73"
+  apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
+  authDomain: "zestygo-dab1a.firebaseapp.com",
+  projectId: "zestygo-dab1a",
+  storageBucket: "zestygo-dab1a.firebasestorage.app",
+  messagingSenderId: "957702912002",
+  appId: "1:957702912002:web:537e06e3ca9941ca860f1b"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth=getAuth(app)
-const provider=new GoogleAuthProvider()
-export {provider,auth}
+const auth = getAuth(app)
+const provider = new GoogleAuthProvider()
+export { provider, auth }

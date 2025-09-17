@@ -27,7 +27,11 @@ import updateLocation from './hooks/updateLocation'
 import TrackOrderPage from './pages/TrackOrderPage'
 import MyDeliveredOrders from './pages/MyDeliveredOrders'
 import ShopItems from './pages/ShopItems'
-export const serverUrl="http://localhost:8000"
+
+export const serverUrl =
+  import.meta.env.MODE === "production"
+    ? import.meta.env.VITE_SERVER_URL_PROD
+    : import.meta.env.VITE_SERVER_URL_LOCAL;
 
 function App() {
   const {userData,allShops,socket}=useSelector(state=>state.user)

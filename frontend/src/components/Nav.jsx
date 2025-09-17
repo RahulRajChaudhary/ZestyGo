@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { TbReceipt2 } from "react-icons/tb";
 
 function Nav() {
-    const { city, userData, cartItems,pendingOrdersCount } = useSelector(state => state.user);
+    const { city, userData, cartItems, pendingOrdersCount } = useSelector(state => state.user);
     const [showSearch, setShowSearch] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const navigate = useNavigate();
@@ -77,7 +77,7 @@ function Nav() {
             )}
 
             {/* Logo */}
-            <h1 className="text-3xl font-bold mb-2 text-[#ff4d2d]">Vingo</h1>
+            <h1 className="text-3xl font-bold mb-2 text-[#ff4d2d]">ZestyGo</h1>
 
             {/* Desktop Search Box */}
             {userData?.role === "user" && (
@@ -94,7 +94,7 @@ function Nav() {
                             type="text"
                             placeholder="search delicious food..."
                             className="px-[10px] text-gray-700 outline-0 w-full"
-                             onChange={(e) => setInput(e.target.value)}
+                            onChange={(e) => setInput(e.target.value)}
                             value={input}
                         />
                     </div>
@@ -147,7 +147,7 @@ function Nav() {
                         >
                             <TbReceipt2 className="w-[22px] h-[22px]" />
                             <span className="absolute -right-1 -top-1 text-[10px] font-bold text-white bg-[#ff4d2d] rounded-full px-[4px] py-[0px]">
-                              {pendingOrdersCount}
+                                {pendingOrdersCount}
                             </span>
                         </div>
                     </>
