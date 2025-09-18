@@ -76,7 +76,6 @@ export const searchItems = async (req, res) => {
       return res.status(400).json({ message: "City is required" });
     }
 
-    // पहले उस city के सारे shop IDs निकालो
     const shopsInCity = await Shop.find({
   city: { $regex: new RegExp(`^${city}$`, "i") }
 });

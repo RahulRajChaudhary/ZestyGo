@@ -16,22 +16,18 @@ const port = process.env.PORT || 5000
 const app=express()
 const server = http.createServer(app)
 
-const FRONTEND_URL =
-  process.env.NODE_ENV === "production"
-    ? process.env.FRONTEND_URL_PROD
-    : process.env.FRONTEND_URL_DEV;
 
 
 const io=new Server(server,{
      cors: {
-    origin: FRONTEND_URL, 
+    origin: "https://zestygo-rsl1.onrender.com", 
     methods: ["GET", "POST"],
     credentials: true  
   }
 })
 app.set("io", io);
 app.use(cors({
-    origin: FRONTEND_URL,
+    origin: "https://zestygo-rsl1.onrender.com",
     credentials:true
 }))
 app.use(express.json())
@@ -45,8 +41,6 @@ app.use("/api/order",orderRouter)
 
 
 socketHandler(io)
-
-
 
 
 server.listen(port,()=>{
